@@ -506,6 +506,8 @@ export default function SSLCertificateChecker() {
                           <tr>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">상태</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">도메인</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">IP 주소</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">PEM 키</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">발급 기관</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">만료일</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">남은 일수</th>
@@ -528,6 +530,12 @@ export default function SSLCertificateChecker() {
                                     )}
                                   </td>
                                   <td className="px-6 py-4 font-medium text-gray-900">{result.domain}</td>
+                                  <td className="px-6 py-4 text-sm text-gray-500">
+                                    {result.error ? '-' : (result.ipAddress || '-')}
+                                  </td>
+                                  <td className="px-6 py-4 text-sm text-gray-600">
+                                    {result.error ? '-' : (result.pemKey || '-')}
+                                  </td>
                                   <td className="px-6 py-4 text-sm text-gray-500">
                                     {result.error ? '-' : result.issuerCN}
                                   </td>
